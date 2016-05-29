@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Teal Labs Dashboard</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+		<style>
+		text {
+    text-decoration: none !important;
+}
+		</style>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    Teal Labs
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+
+
+
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id ="student_name" href="#"></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+
+                        <li class="dropdown">
+
+                              <select class="form-control" id="student_list" style="float:left;margin-top:10%;" >
+															<option value="Class"><a href="#">Class</a> </option>
+                              </select>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Analysis Report</h4>
+
+                            </div>
+                            <div class="content">
+                                <div>
+																	<ul id="analysisReport">
+
+
+																	</ul>
+																</div>
+                                <div class="footer">
+                                    <div class="legend">
+
+                                    </div>
+                                    <hr>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Subjectwise Total Attempts</h4>
+
+                            </div>
+                            <div class="content">
+                                <div id="barChartContainer" class="ct-chart"></div>
+
+                              </div>
+                        </div>
+                    </div>
+										<div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Subjectwise Accuracy</h4>
+
+                            </div>
+                            <div class="content">
+                                <div id="accuracyBarChartContainer" class="ct-chart"></div>
+
+                              </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <p class="copyright pull-right">
+                    &copy; 2016 <a href="https://in.linkedin.com/in/prashant-verma-1470796b">Creative Prashant Verma</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+	<!--  Charts Plugin -->
+	<!-- <script src="assets/js/chartist.min.js"></script> -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<!-- <script src="assets/js/demo.js"></script> -->
+
+	<script type="text/javascript">
+    	$(document).ready(function(){
+
+
+
+          var student_id = "Class";
+          $("#student_name").html(student_id);
+					getWholeClassData();
+
+});
+  $.ajax({
+   url: 'http://localhost/tealLabs/api/index.php/api/studentlist',
+   data: {
+      format: 'json'
+   },
+   error: function() {
+      $('#info').html('<p>An error has occurred</p>');
+   },
+   dataType: 'jsonp',
+   success: function(data) {
+     var sHtml ='';
+    for(var i=0;i<data.message.length;i++){
+      sHtml += '<option value="'+data.message[i].student_id +'"><a href="#">'+ data.message[i].student_id+'</a> </option>';
+    }
+
+    $("#student_list").append(sHtml)
+   },
+   type: 'GET'
+});
+
+$('#student_list').on('change', function() {
+student_id= this.value; // or $(this).val()
+$('#analysisReport').empty();
+$("#student_name").html(student_id);
+	if (student_id==="Class") {
+		getWholeClassData();
+	}
+	else {
+		getStudentData(student_id);
+	}
+
+});
+
+function getNum(val) {
+   if (isNaN(val)) {
+     return 0;
+   }
+   return val.toFixed(2);
+}
+var colors = Highcharts.getOptions().colors;
+var categories = ['Alg', 'Frac', 'Mensu', 'NS', 'R & P','Sets','SI'];
+
+function drawChart(data_array){
+	function setChart(name, categories, data, color) {
+				chart.xAxis[0].setCategories(categories);
+				chart.series[0].remove();
+				chart.addSeries({
+						name: name,
+						data: data,
+						color: color || 'white'
+				});
+		}
+
+		var algebra = {
+										y: parseFloat(getNum(data_array.total_topic_wise_attempts.algebra)),
+	                    color: colors[0],
+	                    drilldown: {
+	                        name: 'Alg Subtopics',
+	                        categories: ['t1', 't2', 't3', 't4'],
+	                        data: [
+														parseFloat(getNum(data_array.total_sub_topic_wise_attempts.algebra.t1)),
+														parseFloat(getNum(data_array.total_sub_topic_wise_attempts.algebra.t2)),
+														parseFloat(getNum(data_array.total_sub_topic_wise_attempts.algebra.t3)),
+														parseFloat(getNum(data_array.total_sub_topic_wise_attempts.algebra.t4)),
+													],
+	                        color: colors[0]
+												}
+											};
+			var fraction = {
+											y: parseFloat(getNum(data_array.total_topic_wise_attempts.fraction)),
+												color: colors[1],
+												drilldown: {
+														name: 'Frac Subtopics',
+														categories: ['t1', 't2', 't3', 't4'],
+														data: [
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.fraction.t1)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.fraction.t2)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.fraction.t3)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.fraction.t4))
+														],
+														color: colors[1]
+													}
+												};
+				var mensuration = {
+											y: parseFloat(getNum(data_array.total_topic_wise_attempts.mensuration)),
+												color: colors[2],
+												drilldown: {
+														name: 'Mensu Subtopics',
+														categories: ['t1', 't2', 't3', 't4'],
+														data: [
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.mensuration.t1)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.mensuration.t2)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.mensuration.t3)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.mensuration.t4))
+														],
+														color: colors[2]
+													}
+												};
+				var numberSystem = {
+												y: parseFloat(getNum(data_array.total_topic_wise_attempts.numberSystem)),
+													color: colors[3],
+													drilldown: {
+															name: 'NS Subtopics',
+															categories: ['t1', 't2', 't3', 't4'],
+															data: [
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.numberSystem.t1)),
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.numberSystem.t2)),
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.numberSystem.t3)),
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.numberSystem.t4))
+															],
+															color: colors[3]
+														}
+													};
+			var ratioAndProportion = {
+											y: parseFloat(getNum(data_array.total_topic_wise_attempts.ratioAndProportion)),
+												color: colors[4],
+												drilldown: {
+														name: 'NS Subtopics',
+														categories: ['t1', 't2', 't3', 't4'],
+														data: [
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.ratioAndProportion.t1)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.ratioAndProportion.t2)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.ratioAndProportion.t3)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.ratioAndProportion.t4))
+														],
+														color: colors[4]
+													}
+												};
+				var sets = {
+												y: parseFloat(getNum(data_array.total_topic_wise_attempts.sets)),
+													color: colors[5],
+													drilldown: {
+															name: 'NS Subtopics',
+															categories: ['t1', 't2', 't3', 't4'],
+															data: [
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.sets.t1)),
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.sets.t2)),
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.sets.t3)),
+																parseFloat(getNum(data_array.total_sub_topic_wise_attempts.sets.t4))
+															],
+															color: colors[5]
+														}
+													};
+			var simpleInterest = {
+											y: parseFloat(getNum(data_array.total_topic_wise_attempts.simpleInterest)),
+												color: colors[6],
+												drilldown: {
+														name: 'NS Subtopics',
+														categories: ['t1', 't2', 't3', 't4'],
+														data: [
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.simpleInterest.t1)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.simpleInterest.t2)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.simpleInterest.t3)),
+															parseFloat(getNum(data_array.total_sub_topic_wise_attempts.simpleInterest.t4))
+														],
+														color: colors[6]
+													}
+												};
+
+
+
+
+			var data =[algebra, fraction,mensuration,numberSystem,ratioAndProportion,sets,simpleInterest],
+			name = 'Total Attempts',
+			chart = new Highcharts.Chart({
+		             chart: {
+		                 renderTo: 'barChartContainer',
+		                 type: 'column'
+		             },
+		             title: {
+		                 text: ''
+		             },
+
+		             xAxis: {
+		                 categories: categories
+		             },
+		             yAxis: {
+		                 title: {
+		                     text: 'Total Attempts'
+		                 }
+		             },
+								 credits:{
+									 enabled:false,
+								 },
+								 legend:{
+									 enabled:false,
+								 },
+		             plotOptions: {
+		                 column: {
+		                     cursor: 'pointer',
+		                     point: {
+		                         events: {
+		                             click: function() {
+		                                 var drilldown = this.drilldown;
+		                                 if (drilldown) { // drill down
+		                                     setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+		                                 } else { // restore
+		                                     setChart(name, categories, data);
+		                                 }
+		                             }
+		                         }
+		                     },
+		                     dataLabels: {
+		                         enabled: true,
+		                         color: colors[0],
+		                         style: {
+		                              textShadow: false,
+																	textDecoration:false,
+		                         },
+		                         formatter: function() {
+		                             return parseFloat((this.y*100/data_array.total_count).toFixed(2))+'%';
+		                         }
+		                     }
+		                 }
+		             },
+		             tooltip: {
+		                 formatter: function() {
+		                     var point = this.point,
+		                         s = this.x +':<b>'+this.y +'</b><br/>';
+		                     if (point.drilldown) {
+		                         s += 'Click to view '+ point.category +' Sub Topics';
+		                     } else {
+		                         s += 'Click to return to Main Topics';
+		                     }
+		                     return s;
+		                 }
+		             },
+		             series: [{
+		                 name: name,
+		                 data: data,
+		                 color: 'white'
+		             }],
+		             exporting: {
+		                 enabled: false
+		             }
+		         });
+
+}
+function drawAccuracyChart(data_array){
+	function setChart(name, categories, data, color) {
+				chart.xAxis[0].setCategories(categories);
+				chart.series[0].remove();
+				chart.addSeries({
+						name: name,
+						data: data,
+						color: color || 'white'
+				});
+		}
+
+		var algebra = {
+										y: parseFloat(getNum(data_array.correct_topic_wise_attempts.algebra*100/data_array.total_topic_wise_attempts.algebra)),
+	                    color: colors[0],
+	                    drilldown: {
+	                        name: 'Alg Subtopics',
+	                        categories: ['t1', 't2', 't3', 't4','t5','t6','t7'],
+	                        data: [
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t1*100/data_array.total_sub_topic_wise_attempts.algebra.t1)),
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t2*100/data_array.total_sub_topic_wise_attempts.algebra.t2)),
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t3*100/data_array.total_sub_topic_wise_attempts.algebra.t3)),
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t4*100/data_array.total_sub_topic_wise_attempts.algebra.t4)),
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t5*100/data_array.total_sub_topic_wise_attempts.algebra.t5)),
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t6*100/data_array.total_sub_topic_wise_attempts.algebra.t6)),
+														parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.algebra.t7*100/data_array.total_sub_topic_wise_attempts.algebra.t7))
+													],
+	                        color: colors[0]
+												}
+											};
+			var fraction = {
+											y: parseFloat(getNum(data_array.correct_topic_wise_attempts.fraction*100/data_array.total_topic_wise_attempts.fraction)),
+												color: colors[1],
+												drilldown: {
+														name: 'Frac Subtopics',
+														categories: ['t1', 't2', 't3', 't4','t5','t6','t7'],
+														data: [
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t1*100/data_array.total_sub_topic_wise_attempts.fraction.t1)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t2*100/data_array.total_sub_topic_wise_attempts.fraction.t2)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t3*100/data_array.total_sub_topic_wise_attempts.fraction.t3)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t4*100/data_array.total_sub_topic_wise_attempts.fraction.t4)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t5*100/data_array.total_sub_topic_wise_attempts.fraction.t5)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t6*100/data_array.total_sub_topic_wise_attempts.fraction.t6)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.fraction.t7*100/data_array.total_sub_topic_wise_attempts.fraction.t7))
+														],
+														color: colors[1]
+													}
+												};
+				var mensuration = {
+											y: parseFloat(getNum(data_array.correct_topic_wise_attempts.mensuration*100/data_array.total_topic_wise_attempts.mensuration)),
+												color: colors[2],
+												drilldown: {
+														name: 'Mensu Subtopics',
+														categories: ['t1', 't2', 't3', 't4','t5','t6','t7'],
+														data: [
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t1*100/data_array.total_sub_topic_wise_attempts.mensuration.t1)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t2*100/data_array.total_sub_topic_wise_attempts.mensuration.t2)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t3*100/data_array.total_sub_topic_wise_attempts.mensuration.t3)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t4*100/data_array.total_sub_topic_wise_attempts.mensuration.t4)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t5*100/data_array.total_sub_topic_wise_attempts.mensuration.t5)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t6*100/data_array.total_sub_topic_wise_attempts.mensuration.t6)),
+														  parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.mensuration.t7*100/data_array.total_sub_topic_wise_attempts.mensuration.t7))
+														],
+														color: colors[2]
+													}
+												};
+				var numberSystem = {
+												y: parseFloat(getNum(data_array.correct_topic_wise_attempts.numberSystem*100/data_array.total_topic_wise_attempts.numberSystem)),
+													color: colors[3],
+													drilldown: {
+															name: 'NS Subtopics',
+															categories: ['t1', 't2', 't3', 't4','t5','t6','t7'],
+															data: [
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t1*100/data_array.total_sub_topic_wise_attempts.numberSystem.t1)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t2*100/data_array.total_sub_topic_wise_attempts.numberSystem.t2)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t3*100/data_array.total_sub_topic_wise_attempts.numberSystem.t3)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t4*100/data_array.total_sub_topic_wise_attempts.numberSystem.t4)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t5*100/data_array.total_sub_topic_wise_attempts.numberSystem.t5)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t6*100/data_array.total_sub_topic_wise_attempts.numberSystem.t6)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.numberSystem.t7*100/data_array.total_sub_topic_wise_attempts.numberSystem.t7))
+															],
+															color: colors[3]
+														}
+													};
+			var ratioAndProportion = {
+											y: parseFloat(getNum(data_array.correct_topic_wise_attempts.ratioAndProportion*100/data_array.total_topic_wise_attempts.ratioAndProportion)),
+												color: colors[4],
+												drilldown: {
+														name: 'NS Subtopics',
+														categories:['t1', 't2', 't3', 't4','t5','t6','t7'],
+														data: [
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t1*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t1)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t2*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t2)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t3*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t3)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t4*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t4)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t5*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t5)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t6*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t6)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.ratioAndProportion.t7*100/data_array.total_sub_topic_wise_attempts.ratioAndProportion.t7))
+														],
+														color: colors[4]
+													}
+												};
+				var sets = {
+												y: parseFloat(getNum(data_array.correct_topic_wise_attempts.sets*100/data_array.total_topic_wise_attempts.sets)),
+													color: colors[5],
+													drilldown: {
+															name: 'NS Subtopics',
+															categories: ['t1', 't2', 't3', 't4','t5','t6','t7'],
+															data: [
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t1*100/data_array.total_sub_topic_wise_attempts.sets.t1)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t2*100/data_array.total_sub_topic_wise_attempts.sets.t2)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t3*100/data_array.total_sub_topic_wise_attempts.sets.t3)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t4*100/data_array.total_sub_topic_wise_attempts.sets.t4)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t5*100/data_array.total_sub_topic_wise_attempts.sets.t5)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t6*100/data_array.total_sub_topic_wise_attempts.sets.t6)),
+																parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.sets.t7*100/data_array.total_sub_topic_wise_attempts.sets.t7))
+															],
+															color: colors[5]
+														}
+													};
+			var simpleInterest = {
+											y: parseFloat(getNum(data_array.correct_topic_wise_attempts.simpleInterest*100/data_array.total_topic_wise_attempts.simpleInterest)),
+												color: colors[6],
+												drilldown: {
+														name: 'NS Subtopics',
+														categories: ['t1', 't2', 't3', 't4','t5','t6','t7'],
+														data: [
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t1*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t1)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t2*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t2)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t3*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t3)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t4*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t4)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t5*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t5)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t6*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t6)),
+															parseFloat(getNum(data_array.correct_sub_topic_wise_attempts.simpleInterest.t7*100/data_array.total_sub_topic_wise_attempts.simpleInterest.t7))
+														],
+														color: colors[6]
+													}
+												};
+
+
+
+
+			var data =[algebra, fraction,mensuration,numberSystem,ratioAndProportion,sets,simpleInterest],
+			name = 'Total Attempts',
+			chart = new Highcharts.Chart({
+		             chart: {
+		                 renderTo: 'accuracyBarChartContainer',
+		                 type: 'column'
+		             },
+		             title: {
+		                 text: ''
+		             },
+
+		             xAxis: {
+		                 categories: categories
+		             },
+		             yAxis: {
+		                 title: {
+		                     text: 'Accuracy %'
+		                 }
+		             },
+								 credits:{
+									 enabled:false,
+								 },
+								 legend:{
+									 enabled:false,
+								 },
+		             plotOptions: {
+		                 column: {
+		                     cursor: 'pointer',
+		                     point: {
+		                         events: {
+		                             click: function() {
+		                                 var drilldown = this.drilldown;
+		                                 if (drilldown) { // drill down
+		                                     setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+		                                 } else { // restore
+		                                     setChart(name, categories, data);
+		                                 }
+		                             }
+		                         }
+		                     },
+		                     dataLabels: {
+		                         enabled: true,
+		                         color: colors[0],
+		                         style: {
+		                              textShadow: false,
+																	textDecoration:false,
+		                         },
+		                         formatter: function() {
+		                             return (this.y)+'%';
+		                         }
+		                     }
+		                 }
+		             },
+		             tooltip: {
+		                 formatter: function() {
+		                     var point = this.point,
+		                         s = this.x +':<b>'+this.y +'% </b><br/>';
+		                     if (point.drilldown) {
+		                         s += 'Click to view '+ point.category +' Sub Topics';
+		                     } else {
+		                         s += 'Click to return to Main Topics';
+		                     }
+		                     return s;
+		                 }
+		             },
+		             series: [{
+		                 name: name,
+		                 data: data,
+		                 color: 'white'
+		             }],
+		             exporting: {
+		                 enabled: false
+		             }
+		         });
+
+}
+
+function generateReport(data_array){
+	var topic_keys_array =[];
+	for(var k in data_array.total_topic_wise_attempts) topic_keys_array.push(k);
+	var arr_total_topic_wise_attempts = Object.keys( data_array.total_topic_wise_attempts ).map(function ( key ) { return data_array.total_topic_wise_attempts[key]; });
+	var min_total_topic_wise_attempts = Math.min.apply( null, arr_total_topic_wise_attempts );
+  var max_total_topic_wise_attempts = Math.max.apply( null, arr_total_topic_wise_attempts );
+
+	$("#analysisReport").append('<li>Maximum No of attmpts is made in '+topic_keys_array[arr_total_topic_wise_attempts.indexOf(max_total_topic_wise_attempts)].toUpperCase() +'</li>');
+
+	var arr_correct_topic_wise_attempts = Object.keys( data_array.correct_topic_wise_attempts ).map(function ( key ) { return data_array.correct_topic_wise_attempts[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_topic_wise_attempts[i])); });
+	var min_correct_topic_wise_attempts = Math.min.apply( null, arr_correct_topic_wise_attempts );
+	var max_correct_topic_wise_attempts = Math.max.apply( null, arr_correct_topic_wise_attempts );
+
+	$("#analysisReport").append('<li>Highest Accuracy is in '+topic_keys_array[arr_correct_topic_wise_attempts.indexOf(max_correct_topic_wise_attempts)].toUpperCase() +'</li>');
+
+	var subtopic_keys_array =[];
+	for(var k in data_array.total_sub_topic_wise_attempts.algebra) subtopic_keys_array.push(k);
+	var arr_total_sub_topic_wise_attempts_algebra = Object.keys( data_array.total_sub_topic_wise_attempts.algebra ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.algebra[key]; });
+	var min_total_sub_topic_wise_attempts_algebra = Math.min.apply( null, arr_total_sub_topic_wise_attempts_algebra );
+  var max_total_sub_topic_wise_attempts_algebra = Math.max.apply( null, arr_total_sub_topic_wise_attempts_algebra );
+
+	var arr_total_sub_topic_wise_attempts_fraction = Object.keys( data_array.total_sub_topic_wise_attempts.fraction ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.fraction[key]; });
+	var min_total_sub_topic_wise_attempts_fraction = Math.min.apply( null, arr_total_sub_topic_wise_attempts_fraction );
+  var max_total_sub_topic_wise_attempts_fraction = Math.max.apply( null, arr_total_sub_topic_wise_attempts_fraction );
+
+	var arr_total_sub_topic_wise_attempts_mensuration = Object.keys( data_array.total_sub_topic_wise_attempts.mensuration ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.mensuration[key]; });
+	var min_total_sub_topic_wise_attempts_mensuration = Math.min.apply( null, arr_total_sub_topic_wise_attempts_mensuration );
+  var max_total_sub_topic_wise_attempts_mensuration = Math.max.apply( null, arr_total_sub_topic_wise_attempts_mensuration );
+
+	var arr_total_sub_topic_wise_attempts_numberSystem = Object.keys( data_array.total_sub_topic_wise_attempts.numberSystem ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.numberSystem[key]; });
+	var min_total_sub_topic_wise_attempts_numberSystem = Math.min.apply( null, arr_total_sub_topic_wise_attempts_numberSystem );
+  var max_total_sub_topic_wise_attempts_numberSystem = Math.max.apply( null, arr_total_sub_topic_wise_attempts_numberSystem );
+
+	var arr_total_topic_wise_attempts_ratioAndProportion = Object.keys( data_array.total_sub_topic_wise_attempts.ratioAndProportion ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.ratioAndProportion [key]; });
+	var min_total_topic_wise_attempts_ratioAndProportion = Math.min.apply( null, arr_total_topic_wise_attempts_ratioAndProportion );
+  var max_total_topic_wise_attempts_ratioAndProportion = Math.max.apply( null, arr_total_topic_wise_attempts_ratioAndProportion );
+
+	var arr_total_sub_topic_wise_attempts_sets = Object.keys( data_array.total_sub_topic_wise_attempts.sets ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.sets[key]; });
+	var min_total_sub_topic_wise_attempts_sets = Math.min.apply( null, arr_total_sub_topic_wise_attempts_sets );
+  var max_total_sub_topic_wise_attempts_sets = Math.max.apply( null, arr_total_sub_topic_wise_attempts_sets );
+
+	var arr_total_sub_topic_wise_attempts_simpleInterest = Object.keys( data_array.total_sub_topic_wise_attempts.simpleInterest ).map(function ( key ) { return data_array.total_sub_topic_wise_attempts.simpleInterest[key]; });
+	var min_total_sub_topic_wise_attempts_simpleInterest = Math.min.apply( null, arr_total_sub_topic_wise_attempts_simpleInterest );
+  var max_total_sub_topic_wise_attempts_simpleInterest = Math.max.apply( null, arr_total_sub_topic_wise_attempts_simpleInterest );
+
+
+	var arr_correct_sub_topic_wise_attempts_algebra = Object.keys( data_array.correct_sub_topic_wise_attempts.algebra ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.algebra[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_algebra[i])); });
+	var min_correct_sub_topic_wise_attempts_algebra = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_algebra );
+  var max_correct_sub_topic_wise_attempts_algebra = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_algebra );
+
+	$("#analysisReport").append('<li>Weekest Subtopic in Algebra is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_algebra.indexOf(min_correct_sub_topic_wise_attempts_algebra)] +'</li>');
+
+	var arr_correct_sub_topic_wise_attempts_fraction = Object.keys( data_array.correct_sub_topic_wise_attempts.fraction ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.fraction[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_fraction[i])); });
+	var min_correct_sub_topic_wise_attempts_fraction = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_fraction );
+  var max_correct_sub_topic_wise_attempts_fraction = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_fraction );
+
+	$("#analysisReport").append('<li>Weekest Subtopic in Fraction is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_fraction.indexOf(min_correct_sub_topic_wise_attempts_fraction)] +'</li>');
+
+	var arr_correct_sub_topic_wise_attempts_mensuration = Object.keys( data_array.correct_sub_topic_wise_attempts.mensuration ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.mensuration[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_mensuration[i])); });
+	var min_correct_sub_topic_wise_attempts_mensuration = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_mensuration );
+  var max_correct_sub_topic_wise_attempts_mensuration = Math.max.apply( null, max_correct_sub_topic_wise_attempts_mensuration );
+
+	$("#analysisReport").append('<li>Weekest Subtopic in Mensuration is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_mensuration.indexOf(min_correct_sub_topic_wise_attempts_mensuration)] +'</li>');
+
+	var arr_correct_sub_topic_wise_attempts_numberSystem = Object.keys( data_array.correct_sub_topic_wise_attempts.numberSystem ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.numberSystem[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_numberSystem[i])); });
+	var min_correct_sub_topic_wise_attempts_numberSystem = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_numberSystem );
+  var max_correct_sub_topic_wise_attempts_numberSystem = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_numberSystem );
+
+	$("#analysisReport").append('<li>Weekest Subtopic in Number Systems is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_numberSystem.indexOf(min_correct_sub_topic_wise_attempts_numberSystem)] +'</li>');
+
+	var arr_correct_topic_wise_attempts_ratioAndProportion = Object.keys( data_array.correct_sub_topic_wise_attempts.ratioAndProportion ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.ratioAndProportion[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_topic_wise_attempts_ratioAndProportion[i])); });
+	var min_correct_topic_wise_attempts_ratioAndProportion = Math.min.apply( null, arr_correct_topic_wise_attempts_ratioAndProportion );
+  var max_correct_topic_wise_attempts_ratioAndProportion = Math.max.apply( null, arr_correct_topic_wise_attempts_ratioAndProportion );
+
+	$("#analysisReport").append('<li>Weekest Subtopic in Ration And Proportion is '+subtopic_keys_array[arr_correct_topic_wise_attempts_ratioAndProportion.indexOf(min_correct_topic_wise_attempts_ratioAndProportion)] +'</li>');
+
+	var arr_correct_sub_topic_wise_attempts_sets = Object.keys( data_array.correct_sub_topic_wise_attempts.sets ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.sets[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_sets[i])); });
+	var min_correct_sub_topic_wise_attempts_sets = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_sets );
+  var max_correct_sub_topic_wise_attempts_sets = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_sets );
+
+	$("#analysisReport").append('<li>Weekest Subtopic in Sets is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_sets.indexOf(min_correct_sub_topic_wise_attempts_sets)] +'</li>');
+
+	var arr_correct_sub_topic_wise_attempts_simpleInterest = Object.keys( data_array.correct_sub_topic_wise_attempts.simpleInterest ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.simpleInterest[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_simpleInterest[i])); });
+	var min_correct_sub_topic_wise_attempts_simpleInterest = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_simpleInterest );
+  var max_correct_sub_topic_wise_attempts_simpleInterest = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_simpleInterest );
+	$("#analysisReport").append('<li>Weekest Subtopic in Sets is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_simpleInterest.indexOf(min_correct_sub_topic_wise_attempts_simpleInterest)] +'</li>');
+
+}
+// It returns student specific data and draws chart
+	 function getStudentData(student_id){
+
+	 	var apiUrl = 'http://localhost/tealLabs/api/index.php/api/studentdata/';
+	 	var apiResponse = [];
+
+	 		apiUrl = apiUrl+ student_id;
+
+
+	 	$.ajax({
+	 	 url: apiUrl,
+	 	 data: {
+	 			format: 'json'
+	 	 },
+	 	 async: false,
+	 	 error: function() {
+	 			console.log(error);
+	 	 },
+	 	 dataType: 'jsonp',
+	 	 success: function(data) {
+
+	 		 apiResponse = data.message;
+	 		 drawChart(data.message.data);
+	 		 drawAccuracyChart(data.message.data);
+			 generateReport(data.message.data);
+
+	 	 },
+	 	 type: 'GET'
+	 });
+
+	 //  return apiResponse;
+	 }
+
+// It returns student whole class data and draws chart
+// Not a good way to handle huge data. Need to improve api response time.
+
+	 function getWholeClassData(){
+		 var apiUrl= "http://localhost/tealLabs/api/index.php/api/classdata";
+		 var apiResponse = [];
+
+		 var maxId = 2000;
+		 var batchId = 2000;
+		 var my_total_count =0;
+		 var total_topic_wise_attempts_algebra = 0,total_topic_wise_attempts_fraction = 0,
+		 total_topic_wise_attempts_mensuration = 0,total_topic_wise_attempts_numberSystem = 0,
+		 total_topic_wise_attempts_ratioAndProportion = 0,total_topic_wise_attempts_sets = 0,
+		 total_topic_wise_attempts_simpleInterest = 0;
+
+		 var correct_topic_wise_attempts_algebra = 0,correct_topic_wise_attempts_fraction = 0,
+		 correct_topic_wise_attempts_mensuration = 0,correct_topic_wise_attempts_numberSystem = 0,
+		 correct_topic_wise_attempts_ratioAndProportion = 0,correct_topic_wise_attempts_sets = 0,
+		 correct_topic_wise_attempts_simpleInterest = 0;
+
+		 var total_sub_topic_wise_attempts_algebra = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 total_sub_topic_wise_attempts_fraction = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 total_sub_topic_wise_attempts_mensuration = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 total_sub_topic_wise_attempts_numberSystem = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 total_sub_topic_wise_attempts_ratioAndProportion = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 total_sub_topic_wise_attempts_sets = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 total_sub_topic_wise_attempts_simpleInterest = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0};
+
+		 var correct_sub_topic_wise_attempts_algebra = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 correct_sub_topic_wise_attempts_fraction = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 correct_sub_topic_wise_attempts_mensuration = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0}
+		 correct_sub_topic_wise_attempts_numberSystem = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 correct_sub_topic_wise_attempts_ratioAndProportion = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0}
+		 correct_sub_topic_wise_attempts_sets = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0},
+		 correct_sub_topic_wise_attempts_simpleInterest = {"t1":0,"t2":0,"t3":0,"t4":0,"t5":0,"t6":0,"t7":0};
+
+		 for (var i = 0; i < 25; i++) {
+
+			apiUrl= apiUrl + "/" + maxId + "/"+batchId;
+			//console.log(apiUrl);
+			maxId = maxId + batchId;
+			(function(i)
+    {
+		 $.ajax({
+      url: apiUrl,
+      data: {
+         format: 'json'
+      },
+			async: false,
+      error: function() {
+        // console.log(error);
+      },
+      dataType: 'jsonp',
+      success: function(data) {
+
+				apiResponse[i] = data.message.data;
+
+      },
+      type: 'GET'
+   });
+ })(i);
+ 	apiUrl= "http://localhost/tealLabs/api/index.php/api/classdata";
+
+		my_total_count += apiResponse[i].total_count;
+		total_topic_wise_attempts_algebra += apiResponse[i].total_topic_wise_attempts.algebra;
+		total_topic_wise_attempts_fraction += apiResponse[i].total_topic_wise_attempts.fraction;
+		total_topic_wise_attempts_mensuration += apiResponse[i].total_topic_wise_attempts.mensuration;
+		total_topic_wise_attempts_numberSystem += apiResponse[i].total_topic_wise_attempts.numberSystem;
+		total_topic_wise_attempts_ratioAndProportion += apiResponse[i].total_topic_wise_attempts.ratioAndProportion;
+		total_topic_wise_attempts_sets += apiResponse[i].total_topic_wise_attempts.sets;
+		total_topic_wise_attempts_simpleInterest += apiResponse[i].total_topic_wise_attempts.simpleInterest;
+
+		correct_topic_wise_attempts_algebra += apiResponse[i].correct_topic_wise_attempts.algebra;
+		correct_topic_wise_attempts_fraction += apiResponse[i].correct_topic_wise_attempts.fraction;
+		correct_topic_wise_attempts_mensuration += apiResponse[i].correct_topic_wise_attempts.mensuration;
+		correct_topic_wise_attempts_numberSystem += apiResponse[i].correct_topic_wise_attempts.numberSystem;
+		correct_topic_wise_attempts_ratioAndProportion += apiResponse[i].correct_topic_wise_attempts.ratioAndProportion;
+		correct_topic_wise_attempts_sets += apiResponse[i].correct_topic_wise_attempts.sets;
+		correct_topic_wise_attempts_simpleInterest += apiResponse[i].correct_topic_wise_attempts.simpleInterest;
+
+		total_sub_topic_wise_attempts_algebra.t1 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t1;
+		total_sub_topic_wise_attempts_algebra.t2 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t2;
+		total_sub_topic_wise_attempts_algebra.t3 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t3;
+		total_sub_topic_wise_attempts_algebra.t4 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t4;
+		total_sub_topic_wise_attempts_algebra.t5 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t5;
+		total_sub_topic_wise_attempts_algebra.t6 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t6;
+		total_sub_topic_wise_attempts_algebra.t7 += apiResponse[i].total_sub_topic_wise_attempts.algebra.t7;
+
+		total_sub_topic_wise_attempts_fraction.t1 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t1;
+		total_sub_topic_wise_attempts_fraction.t2 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t2;
+		total_sub_topic_wise_attempts_fraction.t3 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t3;
+		total_sub_topic_wise_attempts_fraction.t4 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t4;
+		total_sub_topic_wise_attempts_fraction.t5 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t5;
+		total_sub_topic_wise_attempts_fraction.t6 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t6;
+		total_sub_topic_wise_attempts_fraction.t7 += apiResponse[i].total_sub_topic_wise_attempts.fraction.t7;
+
+		total_sub_topic_wise_attempts_mensuration.t1 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t1;
+		total_sub_topic_wise_attempts_mensuration.t2 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t2;
+		total_sub_topic_wise_attempts_mensuration.t3 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t3;
+		total_sub_topic_wise_attempts_mensuration.t4 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t4;
+		total_sub_topic_wise_attempts_mensuration.t5 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t5;
+		total_sub_topic_wise_attempts_mensuration.t6 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t6;
+		total_sub_topic_wise_attempts_mensuration.t7 += apiResponse[i].total_sub_topic_wise_attempts.mensuration.t7;
+
+		total_sub_topic_wise_attempts_numberSystem.t1 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t1;
+		total_sub_topic_wise_attempts_numberSystem.t2 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t2;
+		total_sub_topic_wise_attempts_numberSystem.t3 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t3;
+		total_sub_topic_wise_attempts_numberSystem.t4 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t4;
+		total_sub_topic_wise_attempts_numberSystem.t5 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t5;
+		total_sub_topic_wise_attempts_numberSystem.t6 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t6;
+		total_sub_topic_wise_attempts_numberSystem.t7 += apiResponse[i].total_sub_topic_wise_attempts.numberSystem.t7;
+
+		total_topic_wise_attempts_ratioAndProportion.t1 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t1;
+		total_topic_wise_attempts_ratioAndProportion.t2 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t2;
+		total_topic_wise_attempts_ratioAndProportion.t3 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t3;
+		total_topic_wise_attempts_ratioAndProportion.t4 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t4;
+		total_topic_wise_attempts_ratioAndProportion.t5 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t5;
+		total_topic_wise_attempts_ratioAndProportion.t6 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t6;
+		total_topic_wise_attempts_ratioAndProportion.t7 += apiResponse[i].total_sub_topic_wise_attempts.ratioAndProportion.t7;
+
+		total_sub_topic_wise_attempts_sets.t1 += apiResponse[i].total_sub_topic_wise_attempts.sets.t1;
+		total_sub_topic_wise_attempts_sets.t2 += apiResponse[i].total_sub_topic_wise_attempts.sets.t2;
+		total_sub_topic_wise_attempts_sets.t3 += apiResponse[i].total_sub_topic_wise_attempts.sets.t3;
+		total_sub_topic_wise_attempts_sets.t4 += apiResponse[i].total_sub_topic_wise_attempts.sets.t4;
+		total_sub_topic_wise_attempts_sets.t5 += apiResponse[i].total_sub_topic_wise_attempts.sets.t5;
+		total_sub_topic_wise_attempts_sets.t6 += apiResponse[i].total_sub_topic_wise_attempts.sets.t6;
+		total_sub_topic_wise_attempts_sets.t7 += apiResponse[i].total_sub_topic_wise_attempts.sets.t7;
+
+		total_sub_topic_wise_attempts_simpleInterest.t1 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t1;
+		total_sub_topic_wise_attempts_simpleInterest.t2 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t2;
+		total_sub_topic_wise_attempts_simpleInterest.t3 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t3;
+		total_sub_topic_wise_attempts_simpleInterest.t4 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t4;
+		total_sub_topic_wise_attempts_simpleInterest.t5 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t5;
+		total_sub_topic_wise_attempts_simpleInterest.t6 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t6;
+		total_sub_topic_wise_attempts_simpleInterest.t7 += apiResponse[i].total_sub_topic_wise_attempts.simpleInterest.t7;
+
+		correct_sub_topic_wise_attempts_algebra.t1 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t1;
+		correct_sub_topic_wise_attempts_algebra.t2 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t2;
+		correct_sub_topic_wise_attempts_algebra.t3 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t3;
+		correct_sub_topic_wise_attempts_algebra.t4 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t4;
+		correct_sub_topic_wise_attempts_algebra.t5 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t5;
+		correct_sub_topic_wise_attempts_algebra.t6 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t6;
+		correct_sub_topic_wise_attempts_algebra.t7 += apiResponse[i].correct_sub_topic_wise_attempts.algebra.t7;
+
+		correct_sub_topic_wise_attempts_fraction.t1 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t1;
+		correct_sub_topic_wise_attempts_fraction.t2 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t2;
+		correct_sub_topic_wise_attempts_fraction.t3 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t3;
+		correct_sub_topic_wise_attempts_fraction.t4 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t4;
+		correct_sub_topic_wise_attempts_fraction.t5 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t5;
+		correct_sub_topic_wise_attempts_fraction.t6 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t6;
+		correct_sub_topic_wise_attempts_fraction.t7 += apiResponse[i].correct_sub_topic_wise_attempts.fraction.t7;
+
+		correct_sub_topic_wise_attempts_mensuration.t1 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t1;
+		correct_sub_topic_wise_attempts_mensuration.t2 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t2;
+		correct_sub_topic_wise_attempts_mensuration.t3 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t3;
+		correct_sub_topic_wise_attempts_mensuration.t4 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t4;
+		correct_sub_topic_wise_attempts_mensuration.t5 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t5;
+		correct_sub_topic_wise_attempts_mensuration.t6 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t6;
+		correct_sub_topic_wise_attempts_mensuration.t7 += apiResponse[i].correct_sub_topic_wise_attempts.mensuration.t7;
+
+		correct_sub_topic_wise_attempts_numberSystem.t1 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t1;
+		correct_sub_topic_wise_attempts_numberSystem.t2 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t2;
+		correct_sub_topic_wise_attempts_numberSystem.t3 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t3;
+		correct_sub_topic_wise_attempts_numberSystem.t4 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t4;
+    correct_sub_topic_wise_attempts_numberSystem.t5 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t5;
+		correct_sub_topic_wise_attempts_numberSystem.t6 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t6;
+		correct_sub_topic_wise_attempts_numberSystem.t7 += apiResponse[i].correct_sub_topic_wise_attempts.numberSystem.t7;
+
+		correct_topic_wise_attempts_ratioAndProportion.t1 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t1;
+		correct_topic_wise_attempts_ratioAndProportion.t2 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t2;
+		correct_topic_wise_attempts_ratioAndProportion.t3 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t3;
+		correct_topic_wise_attempts_ratioAndProportion.t4 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t4;
+		correct_topic_wise_attempts_ratioAndProportion.t5 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t5;
+		correct_topic_wise_attempts_ratioAndProportion.t6 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t6;
+		correct_topic_wise_attempts_ratioAndProportion.t7 += apiResponse[i].correct_sub_topic_wise_attempts.ratioAndProportion.t7;
+
+		correct_sub_topic_wise_attempts_sets.t1 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t1;
+		correct_sub_topic_wise_attempts_sets.t2 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t2;
+		correct_sub_topic_wise_attempts_sets.t3 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t3;
+		correct_sub_topic_wise_attempts_sets.t4 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t4;
+		correct_sub_topic_wise_attempts_sets.t5 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t5;
+		correct_sub_topic_wise_attempts_sets.t6 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t6;
+		correct_sub_topic_wise_attempts_sets.t7 += apiResponse[i].correct_sub_topic_wise_attempts.sets.t7;
+
+		correct_sub_topic_wise_attempts_simpleInterest.t1 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t1;
+		correct_sub_topic_wise_attempts_simpleInterest.t2 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t2;
+		correct_sub_topic_wise_attempts_simpleInterest.t3 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t3;
+		correct_sub_topic_wise_attempts_simpleInterest.t4 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t4;
+		correct_sub_topic_wise_attempts_simpleInterest.t5 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t5;
+		correct_sub_topic_wise_attempts_simpleInterest.t6 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t6;
+		correct_sub_topic_wise_attempts_simpleInterest.t7 += apiResponse[i].correct_sub_topic_wise_attempts.simpleInterest.t7;
+ 	}
+
+		var responseobj = {
+			"total_topic_wise_attempts":{"algebra":total_topic_wise_attempts_algebra,"fraction":total_topic_wise_attempts_fraction,"mensuration":total_topic_wise_attempts_mensuration,"numberSystem":total_topic_wise_attempts_numberSystem,"ratioAndProportion":total_topic_wise_attempts_ratioAndProportion,"sets":total_topic_wise_attempts_sets,"simpleInterest":total_topic_wise_attempts_simpleInterest},
+			"correct_topic_wise_attempts":{"algebra":correct_topic_wise_attempts_algebra,"fraction":correct_topic_wise_attempts_fraction,"mensuration":correct_topic_wise_attempts_mensuration,"numberSystem":correct_topic_wise_attempts_numberSystem,"ratioAndProportion":correct_topic_wise_attempts_ratioAndProportion,"sets":correct_topic_wise_attempts_sets,"simpleInterest":correct_topic_wise_attempts_simpleInterest},
+			"total_sub_topic_wise_attempts":{"algebra":total_sub_topic_wise_attempts_algebra,"fraction":total_sub_topic_wise_attempts_fraction,"mensuration":total_sub_topic_wise_attempts_mensuration,"numberSystem":total_sub_topic_wise_attempts_numberSystem,"ratioAndProportion":total_sub_topic_wise_attempts_ratioAndProportion,"sets":total_sub_topic_wise_attempts_sets,"simpleInterest":total_sub_topic_wise_attempts_simpleInterest},
+			"correct_sub_topic_wise_attempts":{"algebra":correct_sub_topic_wise_attempts_algebra,"fraction":correct_sub_topic_wise_attempts_fraction,"mensuration":correct_sub_topic_wise_attempts_mensuration,"numberSystem":correct_sub_topic_wise_attempts_numberSystem,"ratioAndProportion":correct_sub_topic_wise_attempts_ratioAndProportion,"sets":correct_sub_topic_wise_attempts_sets,"simpleInterest":correct_sub_topic_wise_attempts_simpleInterest},
+			"total_count":my_total_count
+		}
+		console.log(responseobj);
+		drawChart(responseobj);
+		drawAccuracyChart(responseobj);
+		generateReport(responseobj);
+		//return apiResponse;
+	 }
+
+
+
+
+
+
+	</script>
+
+</html>
