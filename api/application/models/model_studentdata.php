@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
  */
+ 
 class Model_Studentdata extends MY_Model
 {
   protected $_table = 'students';

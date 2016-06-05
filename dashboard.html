@@ -11,28 +11,50 @@
     <meta name="viewport" content="width=device-width" />
 
 
-    <!-- Bootstrap core CSS     -->
+
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
-
-    <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
+    <!-- <link href="assets/css/main.css" rel="stylesheet" /> -->
 
 
     <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 		<style>
 		text {
     text-decoration: none !important;
 }
+.actualBarContainer{
+	background:#34C9AB;
+	width:100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.actualBarContainer_hover {
+	cursor: pointer;
+	background: #258e79;
+}
+.actualBarLabelContainer{
+height:20%;
+background:#F6F6F6;
+display: none;
+text-align: center;
+color: #D1D1D1;
+font-weight: 700;
+
+}
+.actualBarLabelShow{
+display: block;
+z-index: 1;
+
+}
+
+
+
 		</style>
 
 </head>
@@ -62,6 +84,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+								<li class="active">
+										<a href="calendar.html">
+												<i class="pe-7s-speaker"></i>
+												<p>Calendar</p>
+										</a>
+								</li>
 
 
 
@@ -101,33 +129,181 @@
 
         <div class="content">
             <div class="container-fluid">
+							<div class="row">
+								<div class="col-md-3">
+										<div class="card ">
+												<div class="header">
+														<h4 class="title">Total Attempts</h4>
+
+												</div>
+
+												<div class="content">
+														<div id="treeContainer">
+																<div id="treeparentnode" style="text-align:center !important;">																<!-- <svg width="400" height="110">
+																	<rect width="40%" height="50%" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+																</svg> -->
+																<canvas id="circlecanvas1" width="100" height="100">
+																</canvas>
+																</div>
+
+
+														</div>
+
+													</div>
+										</div>
+								</div>
+
+								<div class="col-md-3">
+										<div class="card ">
+												<div class="header">
+														<h4 class="title">Success Rate</h4>
+
+												</div>
+												<div class="content">
+														<div id="treeContainer">
+																<div id="treeparentnode" style="text-align:center !important;">																<!-- <svg width="400" height="110">
+																	<rect width="40%" height="50%" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+																</svg> -->
+																<canvas id="circlecanvas2" width="100" height="100">
+																</canvas>
+																</div>
+
+
+														</div>
+
+													</div>
+										</div>
+								</div>
+								<div class="col-md-3">
+										<div class="card ">
+												<div class="header">
+														<h4 class="title">Percentile</h4>
+
+												</div>
+												<div class="content">
+														<div id="treeContainer">
+																<div id="treeparentnode" style="text-align:center !important;">																<!-- <svg width="400" height="110">
+																	<rect width="40%" height="50%" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+																</svg> -->
+																<canvas id="circlecanvas3" width="100" height="100">
+																</canvas>
+																</div>
+
+
+														</div>
+
+													</div>
+										</div>
+								</div>
+								<div class="col-md-3">
+										<div class="card ">
+												<div class="header">
+														<h4 class="title">Days Left</h4>
+
+												</div>
+												<div class="content">
+														<div id="treeContainer">
+																<div id="treeparentnode" style="text-align:center !important;">																<!-- <svg width="400" height="110">
+																	<rect width="40%" height="50%" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+																</svg> -->
+																<canvas id="circlecanvas4" width="100" height="100">
+																</canvas>
+																</div>
+
+
+														</div>
+
+													</div>
+										</div>
+								</div>
+							</div>
                 <div class="row">
+									<div class="col-md-6">
+											<div class="card">
+													<div class="header">
+															<h4 class="title">Analysis Report</h4>
+
+													</div>
+													<div class="content">
+															<div>
+																<div id="analysisReportChart">
 
 
-                    <div class="col-md-12">
+																</div>
+															</div>
+															<div class="footer">
+																	<div class="legend">
+
+																	</div>
+																	<hr>
+
+															</div>
+													</div>
+											</div>
+									</div>
+
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Analysis Report</h4>
+                                <h4 class="title">Demo Chart</h4>
 
                             </div>
                             <div class="content">
                                 <div>
-																	<ul id="analysisReport">
+																	<div id="demoChartContainer" style="height:220px;background:#656A70">
+																		<div class="demoChartBarsContainer" style="position:relative;width:14%;border:1px groove #5E635F;height:100%;float:left">
+																			<div class="pe-7s-signal" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;"></div>
+																			<div class="actualBarContainer" style="height:20%"></div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:20%">
+																				<p>20%</p>
+																			</div>
+																		</div>
+																		<div class="demoChartBarsContainer" style="position: relative;width:14%;height:100%;float:left;border:1px groove #5E635F">
+																				<div class="pe-7s-science" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;"></div>
+																			<div class="actualBarContainer" style="height:30%;"></div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:30%"><p>30%</p></div>
+																		</div>
+																		<div class="demoChartBarsContainer" style="position: relative;width:14%;border:1px groove #5E635F;height:100%;float:left">
+																				<div class="pe-7s-share" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;"></div>
+																			<div class="actualBarContainer" style="height:20%;"></div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:20%"><p>20%</p></div>
+
+																		</div>
+																		<div class="demoChartBarsContainer" style="position: relative;width:14%;height:100%;float:left;border:1px groove #5E635F">
+																				<div class="pe-7s-refresh-cloud" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;z-index:10;"></div>
+																			<div class="actualBarContainer" style="height:74%"></div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:74%"><p>74%</p></div>
+																		</div>
+																		<div class="demoChartBarsContainer" style="position: relative;width:14%;border:1px groove #5E635F;height:100%;float:left">
+																				<div class="pe-7s-server" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;"></div>
+																			<div class="actualBarContainer" style="height:50%;"></div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:50%"><p>50%</p></div>
+																		</div>
+																		<div class="demoChartBarsContainer" style="position: relative;width:14%;height:100%;float:left;border:1px groove #5E635F">
+																				<div class="pe-7s-phone" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;"></div>
+																			<div class="actualBarContainer" style="height:10%;"></div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:10%"><p>10%</p></div>
+																		</div>
+																		<div class="demoChartBarsContainer" style="position: relative;width:14%;border:1px groove #5E635F;height:100%;float:left">
+																				<div class="pe-7s-pen" style="font-size:20px;font-weight:700;margin-left: 30%;margin-top: 10%;"></div>
+																			<div class="actualBarContainer" style="height:35%">	</div>
+																			<div class=" actualBarContainer actualBarLabelContainer" style="bottom:35%"><p>35%</p></div>
+																		</div>
 
 
-																	</ul>
+
+																	</div>
 																</div>
-                                <div class="footer">
-                                    <div class="legend">
 
-                                    </div>
-                                    <hr>
-
-                                </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
                 </div>
+
 
 
 
@@ -205,15 +381,29 @@
 	<script type="text/javascript">
     	$(document).ready(function(){
 
+				// $('.actualBarContainer').hover(function () {
+				//     $(this).addClass("actualBarContainer_hover");
+				//   },
+				//   function () {
+				//     $(this).removeClass("actualBarContainer_hover");
+				//   }
+				// 	);
 
+					$(".actualBarContainer").hover(function () {
+						//alert("hi");
+					    $(this).toggleClass("actualBarContainer_hover");
+							$(this).parent().find(".actualBarLabelContainer").toggleClass("actualBarLabelShow");
+					 });
 
           var student_id = "Class";
           $("#student_name").html(student_id);
-					getWholeClassData();
+						getWholeClassData();
+					// getStudentData("Y11sa02");
+
 
 });
   $.ajax({
-   url: 'http://localhost/tealLabs/api/index.php/api/studentlist',
+   url: 'https://sleepy-savannah-29022.herokuapp.com/api/index.php/Students/studentlist',
    data: {
       format: 'json'
    },
@@ -238,13 +428,26 @@ $('#analysisReport').empty();
 $("#student_name").html(student_id);
 	if (student_id==="Class") {
 		getWholeClassData();
+
 	}
 	else {
 		getStudentData(student_id);
+
 	}
 
 });
 
+function isInfinity(val){
+	if (val==-Infinity) {
+		return getNum(val);
+	}
+	if(val==0){
+		return 0.1
+	}
+	else {
+		return val;
+	}
+}
 function getNum(val) {
    if (isNaN(val)) {
      return 0;
@@ -412,7 +615,9 @@ function drawChart(data_array){
 		             yAxis: {
 		                 title: {
 		                     text: 'Total Attempts'
-		                 }
+		                 },
+										 gridLineWidth: 0,
+                minorGridLineWidth: 0,
 		             },
 								 credits:{
 									 enabled:false,
@@ -423,6 +628,9 @@ function drawChart(data_array){
 		             plotOptions: {
 		                 column: {
 		                     cursor: 'pointer',
+												 pointPadding: 0,
+												 groupPadding: 0,
+                    		 borderWidth: 0.3,
 		                     point: {
 		                         events: {
 		                             click: function() {
@@ -629,7 +837,9 @@ function drawAccuracyChart(data_array){
 		             yAxis: {
 		                 title: {
 		                     text: 'Accuracy %'
-		                 }
+		                 },
+										 gridLineWidth: 0,
+								minorGridLineWidth: 0,
 		             },
 								 credits:{
 									 enabled:false,
@@ -640,6 +850,9 @@ function drawAccuracyChart(data_array){
 		             plotOptions: {
 		                 column: {
 		                     cursor: 'pointer',
+												 pointPadding: 0,
+												 groupPadding: 0,
+                    		 borderWidth: 0.3,
 		                     point: {
 		                         events: {
 		                             click: function() {
@@ -696,13 +909,13 @@ function generateReport(data_array){
 	var min_total_topic_wise_attempts = Math.min.apply( null, arr_total_topic_wise_attempts );
   var max_total_topic_wise_attempts = Math.max.apply( null, arr_total_topic_wise_attempts );
 
-	$("#analysisReport").append('<li>Maximum No of attmpts is made in '+topic_keys_array[arr_total_topic_wise_attempts.indexOf(max_total_topic_wise_attempts)].toUpperCase() +'</li>');
+	// $("#analysisReport").append('<li>Maximum No of attmpts is made in '+topic_keys_array[arr_total_topic_wise_attempts.indexOf(max_total_topic_wise_attempts)].toUpperCase() +'</li>');
 
 	var arr_correct_topic_wise_attempts = Object.keys( data_array.correct_topic_wise_attempts ).map(function ( key ) { return data_array.correct_topic_wise_attempts[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_topic_wise_attempts[i])); });
 	var min_correct_topic_wise_attempts = Math.min.apply( null, arr_correct_topic_wise_attempts );
 	var max_correct_topic_wise_attempts = Math.max.apply( null, arr_correct_topic_wise_attempts );
 
-	$("#analysisReport").append('<li>Highest Accuracy is in '+topic_keys_array[arr_correct_topic_wise_attempts.indexOf(max_correct_topic_wise_attempts)].toUpperCase() +'</li>');
+	// $("#analysisReport").append('<li>Highest Accuracy is in '+topic_keys_array[arr_correct_topic_wise_attempts.indexOf(max_correct_topic_wise_attempts)].toUpperCase() +'</li>');
 
 	var subtopic_keys_array =[];
 	for(var k in data_array.total_sub_topic_wise_attempts.algebra) subtopic_keys_array.push(k);
@@ -739,48 +952,191 @@ function generateReport(data_array){
 	var min_correct_sub_topic_wise_attempts_algebra = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_algebra );
   var max_correct_sub_topic_wise_attempts_algebra = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_algebra );
 
-	$("#analysisReport").append('<li>Weekest Subtopic in Algebra is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_algebra.indexOf(min_correct_sub_topic_wise_attempts_algebra)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Algebra is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_algebra.indexOf(min_correct_sub_topic_wise_attempts_algebra)] +'</li>');
 
 	var arr_correct_sub_topic_wise_attempts_fraction = Object.keys( data_array.correct_sub_topic_wise_attempts.fraction ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.fraction[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_fraction[i])); });
 	var min_correct_sub_topic_wise_attempts_fraction = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_fraction );
   var max_correct_sub_topic_wise_attempts_fraction = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_fraction );
 
-	$("#analysisReport").append('<li>Weekest Subtopic in Fraction is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_fraction.indexOf(min_correct_sub_topic_wise_attempts_fraction)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Fraction is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_fraction.indexOf(min_correct_sub_topic_wise_attempts_fraction)] +'</li>');
 
 	var arr_correct_sub_topic_wise_attempts_mensuration = Object.keys( data_array.correct_sub_topic_wise_attempts.mensuration ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.mensuration[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_mensuration[i])); });
 	var min_correct_sub_topic_wise_attempts_mensuration = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_mensuration );
   var max_correct_sub_topic_wise_attempts_mensuration = Math.max.apply( null, max_correct_sub_topic_wise_attempts_mensuration );
 
-	$("#analysisReport").append('<li>Weekest Subtopic in Mensuration is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_mensuration.indexOf(min_correct_sub_topic_wise_attempts_mensuration)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Mensuration is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_mensuration.indexOf(min_correct_sub_topic_wise_attempts_mensuration)] +'</li>');
 
 	var arr_correct_sub_topic_wise_attempts_numberSystem = Object.keys( data_array.correct_sub_topic_wise_attempts.numberSystem ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.numberSystem[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_numberSystem[i])); });
 	var min_correct_sub_topic_wise_attempts_numberSystem = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_numberSystem );
   var max_correct_sub_topic_wise_attempts_numberSystem = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_numberSystem );
 
-	$("#analysisReport").append('<li>Weekest Subtopic in Number Systems is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_numberSystem.indexOf(min_correct_sub_topic_wise_attempts_numberSystem)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Number Systems is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_numberSystem.indexOf(min_correct_sub_topic_wise_attempts_numberSystem)] +'</li>');
 
 	var arr_correct_topic_wise_attempts_ratioAndProportion = Object.keys( data_array.correct_sub_topic_wise_attempts.ratioAndProportion ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.ratioAndProportion[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_topic_wise_attempts_ratioAndProportion[i])); });
 	var min_correct_topic_wise_attempts_ratioAndProportion = Math.min.apply( null, arr_correct_topic_wise_attempts_ratioAndProportion );
   var max_correct_topic_wise_attempts_ratioAndProportion = Math.max.apply( null, arr_correct_topic_wise_attempts_ratioAndProportion );
 
-	$("#analysisReport").append('<li>Weekest Subtopic in Ration And Proportion is '+subtopic_keys_array[arr_correct_topic_wise_attempts_ratioAndProportion.indexOf(min_correct_topic_wise_attempts_ratioAndProportion)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Ration And Proportion is '+subtopic_keys_array[arr_correct_topic_wise_attempts_ratioAndProportion.indexOf(min_correct_topic_wise_attempts_ratioAndProportion)] +'</li>');
 
 	var arr_correct_sub_topic_wise_attempts_sets = Object.keys( data_array.correct_sub_topic_wise_attempts.sets ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.sets[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_sets[i])); });
 	var min_correct_sub_topic_wise_attempts_sets = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_sets );
   var max_correct_sub_topic_wise_attempts_sets = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_sets );
 
-	$("#analysisReport").append('<li>Weekest Subtopic in Sets is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_sets.indexOf(min_correct_sub_topic_wise_attempts_sets)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Sets is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_sets.indexOf(min_correct_sub_topic_wise_attempts_sets)] +'</li>');
 
 	var arr_correct_sub_topic_wise_attempts_simpleInterest = Object.keys( data_array.correct_sub_topic_wise_attempts.simpleInterest ).map(function ( key ) { return data_array.correct_sub_topic_wise_attempts.simpleInterest[key]; }).map(function(n, i) { return parseFloat(getNum(n*100 / arr_total_sub_topic_wise_attempts_simpleInterest[i])); });
 	var min_correct_sub_topic_wise_attempts_simpleInterest = Math.min.apply( null, arr_correct_sub_topic_wise_attempts_simpleInterest );
   var max_correct_sub_topic_wise_attempts_simpleInterest = Math.max.apply( null, arr_correct_sub_topic_wise_attempts_simpleInterest );
-	$("#analysisReport").append('<li>Weekest Subtopic in Sets is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_simpleInterest.indexOf(min_correct_sub_topic_wise_attempts_simpleInterest)] +'</li>');
+	// $("#analysisReport").append('<li>Weekest Subtopic in Sets is '+subtopic_keys_array[arr_correct_sub_topic_wise_attempts_simpleInterest.indexOf(min_correct_sub_topic_wise_attempts_simpleInterest)] +'</li>');
+
+//var categories = ['Alg', 'Frac', 'Mensu', 'NS', 'R & P','Sets','SI'];
+var minData = [-isInfinity(min_total_sub_topic_wise_attempts_algebra),
+								-isInfinity(min_correct_sub_topic_wise_attempts_fraction),
+								-isInfinity(min_correct_sub_topic_wise_attempts_mensuration),
+								-isInfinity(min_correct_sub_topic_wise_attempts_numberSystem),
+								-isInfinity(min_correct_topic_wise_attempts_ratioAndProportion),
+								-isInfinity(min_correct_sub_topic_wise_attempts_sets),
+								-isInfinity(min_correct_sub_topic_wise_attempts_simpleInterest)
+
+							]
+var nameOfMinSubtopic = [subtopic_keys_array[arr_correct_sub_topic_wise_attempts_algebra.indexOf(min_correct_sub_topic_wise_attempts_algebra)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_fraction.indexOf(min_correct_sub_topic_wise_attempts_fraction)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_mensuration.indexOf(min_correct_sub_topic_wise_attempts_mensuration)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_numberSystem.indexOf(min_correct_sub_topic_wise_attempts_numberSystem)],
+												subtopic_keys_array[arr_correct_topic_wise_attempts_ratioAndProportion.indexOf(min_correct_topic_wise_attempts_ratioAndProportion)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_sets.indexOf(min_correct_sub_topic_wise_attempts_sets)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_simpleInterest.indexOf(min_correct_sub_topic_wise_attempts_simpleInterest)]
+												]
+var maxData = [isInfinity(max_total_sub_topic_wise_attempts_algebra),
+								isInfinity(max_correct_sub_topic_wise_attempts_fraction),
+								isInfinity(max_correct_sub_topic_wise_attempts_mensuration),
+								isInfinity(max_correct_sub_topic_wise_attempts_numberSystem),
+								isInfinity(max_correct_topic_wise_attempts_ratioAndProportion),
+								isInfinity(max_correct_sub_topic_wise_attempts_sets),
+								isInfinity(max_correct_sub_topic_wise_attempts_simpleInterest)
+
+							]
+var nameOfMaxSubtopic = [subtopic_keys_array[arr_correct_sub_topic_wise_attempts_algebra.indexOf(max_correct_sub_topic_wise_attempts_algebra)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_fraction.indexOf(max_correct_sub_topic_wise_attempts_fraction)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_mensuration.indexOf(max_correct_sub_topic_wise_attempts_mensuration)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_numberSystem.indexOf(max_correct_sub_topic_wise_attempts_numberSystem)],
+												subtopic_keys_array[arr_correct_topic_wise_attempts_ratioAndProportion.indexOf(max_correct_topic_wise_attempts_ratioAndProportion)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_sets.indexOf(max_correct_sub_topic_wise_attempts_sets)],
+												subtopic_keys_array[arr_correct_sub_topic_wise_attempts_simpleInterest.indexOf(max_correct_sub_topic_wise_attempts_simpleInterest)]
+												]
+		console.log(maxData);
+$('#analysisReportChart').highcharts({
+            chart: {
+                type: 'bar',
+								height: 180,
+            },
+            title: {
+                text: ''
+            },
+
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            },
+						{ // mirror axis on right side
+	                opposite: true,
+	                reversed: false,
+	                categories: categories,
+	                linkedTo: 0,
+	                labels: {
+	                    step: 1
+	                }
+	            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '%';
+                    }
+                },
+								gridLineWidth:0,
+								minorGridLineWidth:0,
+								min: -100,
+							 max: 100
+
+
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal',
+										pointPadding: 0,
+										groupPadding: 0,
+										dataLabels: {
+                        enabled: true,
+                        color: '#000',
+                        style: {fontWeight: 'bolder'},
+                        formatter: function() {
+														console.log(this.point.index);
+														if (this.series.name=="Weekest") {
+															return nameOfMinSubtopic[this.point.index];
+
+														}
+														else {
+															return  nameOfMaxSubtopic[this.point.index];
+
+														}
+													},
+                        inside: false,
+												y: -1
+
+                    }
+                }
+
+            },
+
+            tooltip: {
+                formatter: function () {
+									// console.log(nameOfMinSubtopic[this.point.index])
+									if (this.series.name=="Weekest") {
+										return '<b>' + this.series.name + ' in ' + this.point.category + ' is ' + nameOfMinSubtopic[this.point.index]+'</b><br/>'
+												'Attempts ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+									}
+									else {
+										return '<b>' + this.series.name + ' in ' + this.point.category + ' is ' + nameOfMaxSubtopic[this.point.index]+ '</b><br/>'
+                        'Attempts ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+									}
+
+                }
+            },
+						legend: {
+            enabled: true,
+						layout: 'horizontal',
+					 align: 'center',
+					 verticalAlign: 'top',
+					 floating: false,
+					 backgroundColor: '#FFFFFF'
+        },
+				credits: {
+				enabled: false
+		},
+
+            series: [{
+                name: 'Strongest',
+                data: maxData,
+								color:'#009933'
+            }, {
+                name: 'Weekest',
+                data: minData,
+								color: '#ad2323'
+            }]
+        });
 
 }
 // It returns student specific data and draws chart
 	 function getStudentData(student_id){
 
-	 	var apiUrl = 'http://localhost/tealLabs/api/index.php/api/studentdata/';
+	 	var apiUrl = 'https://sleepy-savannah-29022.herokuapp.com/api/index.php/Students/studentdata/';
 	 	var apiResponse = [];
 
 	 		apiUrl = apiUrl+ student_id;
@@ -802,6 +1158,8 @@ function generateReport(data_array){
 	 		 drawChart(data.message.data);
 	 		 drawAccuracyChart(data.message.data);
 			 generateReport(data.message.data);
+			 redrawCharts(data.message.data);
+			 	console.log(data.message.data);
 
 	 	 },
 	 	 type: 'GET'
@@ -814,7 +1172,7 @@ function generateReport(data_array){
 // Not a good way to handle huge data. Need to improve api response time.
 
 	 function getWholeClassData(){
-		 var apiUrl= "http://localhost/tealLabs/api/index.php/api/classdata";
+		 var apiUrl= "https://sleepy-savannah-29022.herokuapp.com/api/index.php/Students/classdata";
 		 var apiResponse = [];
 
 		 var maxId = 2000;
@@ -871,7 +1229,7 @@ function generateReport(data_array){
       type: 'GET'
    });
  })(i);
- 	apiUrl= "http://localhost/tealLabs/api/index.php/api/classdata";
+ 	apiUrl= "https://sleepy-savannah-29022.herokuapp.com/api/index.php/Students/classdata";
 
 		my_total_count += apiResponse[i].total_count;
 		total_topic_wise_attempts_algebra += apiResponse[i].total_topic_wise_attempts.algebra;
@@ -1014,12 +1372,157 @@ function generateReport(data_array){
 		drawChart(responseobj);
 		drawAccuracyChart(responseobj);
 		generateReport(responseobj);
+		 redrawCharts(responseobj);
 		//return apiResponse;
 	 }
 
+	 (function() {
+   var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                               window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+   window.requestAnimationFrame = requestAnimationFrame;
+ })();
+
+ function sumObj( obj ) {
+  var sum = 0;
+  for( var el in obj ) {
+    if( obj.hasOwnProperty( el ) ) {
+      sum += parseInt( obj[el] );
+    }
+  }
+  return sum;
+}
+
+function redrawCharts(dataObj){
+	console.log(dataObj);
+	var strokeColor = ['#009933','#ad2323'];
+	var successRate = sumObj(dataObj.correct_topic_wise_attempts);
+
+ var canvas1 = document.getElementById('circlecanvas1');
+ var canvas2 = document.getElementById('circlecanvas2');
+ var canvas3 = document.getElementById('circlecanvas3');
+ var canvas4 = document.getElementById('circlecanvas4');
+  var context1 = canvas1.getContext('2d');
+	var context2 = canvas2.getContext('2d');
+	var context3 = canvas3.getContext('2d');
+	var context4 = canvas4.getContext('2d');
+  var x1 = canvas1.width / 2;
+  var y1 = canvas1.height / 2;
+	var x2 = canvas1.width / 2;
+	var y2 = canvas1.height / 2;
+	var x3 = canvas1.width / 2;
+	var y3 = canvas1.height / 2;
+	var x4 = canvas1.width / 2;
+	var y4 = canvas1.height / 2;
+  var radius = 35;
+  var endPercent = 85;
+  var curPerc = 0;
+  var counterClockwise = false;
+  var circ = Math.PI * 2;
+  var quart = Math.PI / 2;
+	var val1 = dataObj.total_count;
+	var val2 = parseFloat((successRate/dataObj.total_count *100).toFixed(2));
+	var val3 = getRandomInt(40,100);
+	var val4 = getRandomInt(1,7);
 
 
+  context1.lineWidth = 10;
+  context1.strokeStyle = val1>1000?strokeColor[0]:strokeColor[1];
+  context1.shadowOffsetX = 0;
+  context1.shadowOffsetY = 0;
+  context1.shadowBlur = 10;
+  context1.shadowColor = '#656565';
 
+	context2.lineWidth = 10;
+	context2.strokeStyle = val2>40?strokeColor[0]:strokeColor[1];
+	context2.shadowOffsetX = 0;
+	context2.shadowOffsetY = 0;
+	context2.shadowBlur = 10;
+	context2.shadowColor = '#656565';
+
+	context3.lineWidth = 10;
+	context3.strokeStyle = val3>70?strokeColor[0]:strokeColor[1];
+	context3.shadowOffsetX = 0;
+	context3.shadowOffsetY = 0;
+	context3.shadowBlur = 10;
+	context3.shadowColor = '#656565';
+
+	context4.lineWidth = 10;
+	context4.strokeStyle = val4>3?strokeColor[0]:strokeColor[1];
+	context4.shadowOffsetX = 0;
+	context4.shadowOffsetY = 0;
+	context4.shadowBlur = 10;
+	context4.shadowColor = '#656565';
+
+	function getRandomInt(min, max) {
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+  function animate1(current) {
+      context1.clearRect(0, 0, canvas1.width, canvas1.height);
+      context1.beginPath();
+      context1.arc(x1, y1, radius, -(quart), ((circ) * current) - quart, false);
+      context1.stroke();
+			context1.textAlign = "center";
+			context1.fillText(val1,canvas2.width/2, canvas2.height/2);
+		//ar scale = val1/3000 *100	;
+      curPerc++;
+      if (curPerc < val1) {
+          requestAnimationFrame(function () {
+              animate1(curPerc / 100)
+          });
+      }
+  }
+	function animate2(current) {
+
+			context2.clearRect(0, 0, canvas2.width, canvas2.height);
+      context2.beginPath();
+      context2.arc(x2, y2, radius, -(quart), ((circ) * current) - quart, false);
+      context2.stroke();
+			context2.textAlign = "center";
+			context2.fillText(val2,canvas2.width/2, canvas2.height/2);
+
+      curPerc++;
+      if (curPerc < val2) {
+          requestAnimationFrame(function () {
+              animate2(curPerc / 100)
+          });
+      }
+  }
+	function animate3(current) {
+
+		context3.clearRect(0, 0, canvas3.width, canvas3.height);
+		context3.beginPath();
+		context3.arc(x3, y3, radius, -(quart), ((circ) * current) - quart, false);
+		context3.stroke();
+		context3.textAlign = "center";
+		context3.fillText(val3,canvas3.width/2, canvas3.height/2);
+
+			curPerc++;
+			if (curPerc < val3) {
+					requestAnimationFrame(function () {
+							animate3(curPerc / 100)
+					});
+			}
+	}
+	function animate4(current) {
+
+		context4.clearRect(0, 0, canvas4.width, canvas4.height);
+		context4.beginPath();
+		context4.arc(x4, y4, radius, -(quart), ((circ) * current) - quart, false);
+		context4.stroke();
+		context4.textAlign = "center";
+		context4.fillText(val4,canvas4.width/2, canvas4.height/2);
+			curPerc++;
+			var scale =  val4/7 *100;
+			if (curPerc < scale) {
+					requestAnimationFrame(function () {
+							animate4(curPerc / 100)
+					});
+			}
+	}
+
+  animate1();  animate2();  animate3();  animate4();
+
+}
 
 
 	</script>

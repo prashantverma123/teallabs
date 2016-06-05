@@ -1,6 +1,6 @@
 <?php
 
-$connect = mysqli_connect("localhost","root","","teallabs");
+$connect = mysqli_connect("127.0.0.1","mhcdbuser","mhc123","mhc");
   // ini_set('memory_limit', '128M');
 include ("PHPExcel/IOFactory.php");
 
@@ -12,9 +12,9 @@ foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
   for ($row=1; $row <=24 ; $row++) {
     $html .="<tr>";
     $student_id = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(0,$row)->getValue());
-    $assesmentItem_id = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(1,$row)->getValue());
-    $correct = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(2,$row)->getValue());
-    $difficulty = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(3,$row)->getValue());
+    // $assesmentItem_id = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(1,$row)->getValue());
+    // $correct = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(2,$row)->getValue());
+    // $difficulty = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(3,$row)->getValue());
     $time_started = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(4,$row)->getValue());
     $time_taken = mysqli_real_escape_string($connect,$worksheet->getCellByColumnAndRow(5,$row)->getValue());
     $sql ="INSERT INTO `studentmaster` ( `student_id`,`insert_date`, `update_date`, `ip`, `status`) VALUES

@@ -32,6 +32,7 @@
   }
 }
 /*           Font Smoothing      */
+
 body,
 h1, .h1,
 h2, .h2,
@@ -135,6 +136,7 @@ h1 .subtitle {
 /*     General overwrite     */
 body,
 .wrapper {
+  /*background:#1f1f1f !important;*/
   min-height: 100vh;
   position: relative;
 }
